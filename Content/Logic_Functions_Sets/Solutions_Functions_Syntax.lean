@@ -17,13 +17,18 @@ def second_ver := fun n : ℕ => n^2
 #check (first_ver)
 #check (second_ver)
 
--- Computability:
+-- Computability (and syntax for evaluation)
 
 #eval first_ver 1
 #eval first_ver 2
 #eval first_ver 3
 #eval first_ver 4
 
+def curry (n m : ℕ) := (n+1)*(m^2)
+
+#eval curry 1 2
+
+#check (curry)
 
 -- No partial functions. Instead, we use:
 
