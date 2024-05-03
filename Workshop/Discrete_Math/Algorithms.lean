@@ -8,7 +8,7 @@ import Mathlib.Tactic
 import Mathlib.Data.List.Sort
 
 
-/-- Inserting x into list L at the first entry where it's smaller-/
+/-- Inserting `x` into a list `l` at the first entry where it is smaller -/
 def my_insert (x : ℕ) : List ℕ → List ℕ
 | [] => [x]
 | y :: l =>
@@ -17,8 +17,7 @@ def my_insert (x : ℕ) : List ℕ → List ℕ
     else y :: (my_insert x l)
 
 /-- `y` is in the list obtained by inserting `x` into `l` iff it is either `x` or it is in `l` -/
-lemma mem_insertion (x y: ℕ) (l : List ℕ) : y ∈ my_insert x l ↔ (y = x ∨ y ∈ l) :=
-  by
+lemma mem_insertion (x y: ℕ) (l : List ℕ) : y ∈ my_insert x l ↔ (y = x ∨ y ∈ l) := by
   constructor
   · induction' l with z l ih
     · dsimp [my_insert]
@@ -80,8 +79,7 @@ lemma mem_insertion (x y: ℕ) (l : List ℕ) : y ∈ my_insert x l ↔ (y = x �
 
 /-- If list `l` is sorted, then using `my_insert` to insert some number maintains this property -/
 lemma insertion_maintains_sort (x: ℕ) (l : List ℕ) (hl : List.Sorted Nat.le l) :
-  List.Sorted Nat.le (my_insert x l) :=
-  by
+    List.Sorted Nat.le (my_insert x l) := by
   induction' l with y l ih
   · dsimp [my_insert]
     exact List.sorted_singleton x

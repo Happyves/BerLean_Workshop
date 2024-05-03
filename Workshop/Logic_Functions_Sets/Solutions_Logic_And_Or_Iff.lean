@@ -1,9 +1,6 @@
-
 import Mathlib.Tactic
 
-
 -- # Conjunction, disjunction, equivalence
-
 
 variable (P Q R S : Prop)
 
@@ -49,8 +46,7 @@ example : Q → P ∨ Q := by
   exact hQ
 
 -- elimination
-example : P ∨ Q → (P → R) → (Q → R) → R :=
-  by
+example : P ∨ Q → (P → R) → (Q → R) → R := by
   intro hPoQ hPR hQR
   cases' hPoQ with hP hQ
   · apply hPR
@@ -58,8 +54,7 @@ example : P ∨ Q → (P → R) → (Q → R) → R :=
   · exact hQR hQ
 
 -- rintro and instant match
-example : (P → R) → (Q → S) → P ∨ Q → R ∨ S :=
-  by
+example : (P → R) → (Q → S) → P ∨ Q → R ∨ S := by
   rintro hPR hQS (hP | hQ)
   · left; apply hPR; exact hP
   · right; exact hQS hQ
@@ -118,8 +113,6 @@ example : ¬(P ↔ ¬P) := by
   apply hnP
   rw [h]
   exact hnP
-
-
 
 
 -- # Exercises

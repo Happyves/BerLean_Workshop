@@ -1,4 +1,3 @@
-
 import Mathlib.Tactic
 
 open Nat

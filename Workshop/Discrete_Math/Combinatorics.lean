@@ -12,9 +12,7 @@ import Mathlib.Tactic
 
 
 lemma succ_coprime
-  (n m : Nat) (h : n = m+1) :
-  Nat.Coprime n m :=
-  by
+    {n m : Nat} (h : n = m + 1) : Nat.Coprime n m := by
   rw [h]
   rw [Nat.coprime_self_add_left]
   exact Nat.coprime_one_left m
@@ -22,10 +20,9 @@ lemma succ_coprime
 open Finset
 
 lemma claim_1
-  (n : ℕ) (h : 1 ≤ n)
-  (A : Finset ℕ) (Adef : A ∈ (powersetCard (n+1) (Icc 1 (2*n)))) :
-  ∃ a ∈ A, ∃ b ∈ A, (a≠b) ∧ (Nat.Coprime a b) :=
-  by
+    {n : ℕ} (h : 1 ≤ n)
+    {A : Finset ℕ} (Adef : A ∈ (powersetCard (n+1) (Icc 1 (2*n)))) :
+    ∃ a ∈ A, ∃ b ∈ A, (a≠b) ∧ (Nat.Coprime a b) := by
   rw [mem_powersetCard] at Adef
   /-
   This will follow from `succ_coprime` once we find
@@ -34,13 +31,11 @@ lemma claim_1
   A function achieving this grouping is `(λ (x : ℕ), (x+1) / 2)`
   -/
   have Lem1 :
-    ∃ a ∈ A, ∃ b ∈ A, (a≠b) ∧
-    ((fun (x : ℕ) => (x+1) / 2) a = (fun (x : ℕ) => (x+1) / 2) b) :=
-    by
+      ∃ a ∈ A, ∃ b ∈ A, (a≠b) ∧
+      ((fun (x : ℕ) => (x+1) / 2) a = (fun (x : ℕ) => (x+1) / 2) b) := by
     let group_fn := (fun x => (x+1) / 2)
-        -- A condition to apply `exists_ne_map_eq_of_card_lt_of_maps_to`
-    have map_condition : (∀ a, a ∈ A → group_fn a ∈ (Icc 1 n)) :=
-      by
+    -- A condition to apply `exists_ne_map_eq_of_card_lt_of_maps_to`
+    have map_condition : (∀ a, a ∈ A → group_fn a ∈ (Icc 1 n)) := by
       intro x xdef
       dsimp [group_fn]
       replace xdef := Adef.1 xdef
@@ -53,8 +48,8 @@ lemma claim_1
         linarith
         norm_num
 
+    -- this is the pigeonhole principle
     apply exists_ne_map_eq_of_card_lt_of_maps_to _ map_condition
-          -- this is the pigeonhole principle
     -- We're left to show the condition on the sizes
     rw [Nat.card_Icc]
     simp only [add_tsub_cancel_right]
@@ -68,12 +63,9 @@ lemma claim_1
   constructor ; exact anb ;
   -- To determine which of a and b is the successor,
   -- we investigate the remainders
-  have Lem2 :
-    (a+1)%2 ≠ (b+1)%2 :=
-    by
+  have Lem2 : (a + 1) % 2 ≠ (b + 1) % 2 := by
     intro con
-    have : a+1 = b+1 :=
-      by
+    have : a + 1 = b + 1 := by
       rw [← Nat.div_add_mod (a+1) 2]
       rw [← Nat.div_add_mod (b+1) 2]
       rw [abeq, con]
@@ -85,7 +77,7 @@ lemma claim_1
     rw [ne_comm] at *
     rw [eq_comm] at abeq
     replace H := lt_of_le_of_ne H Lem2
-    specialize Sym n h A Adef
+    specialize Sym h Adef
     specialize Sym b bA a aA anb abeq Lem2 H
     rw [Nat.coprime_comm]
     exact Sym
@@ -97,7 +89,7 @@ lemma claim_1
     · --rw [bcase] at H
       rw [Nat.lt_one_iff] at H
       rw [Nat.coprime_comm]
-      apply succ_coprime b a -- we may now put out plan to action
+      apply @succ_coprime b a -- we may now put out plan to action
       apply @Nat.add_right_cancel _ 1 _
       rw [← Nat.div_add_mod (a+1) 2]
       rw [← Nat.div_add_mod (b+1) 2]

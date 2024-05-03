@@ -1,6 +1,4 @@
-
 import Mathlib.Tactic
-
 
 -- # Induction and natural numbers
 
