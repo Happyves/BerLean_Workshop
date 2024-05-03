@@ -56,5 +56,4 @@ example (n : ℕ) : 2*(∑ x in Finset.range (n+1), x) = n*(n+1) := by
   · rw [Finset.sum_range_succ]
     rw [mul_add]
     rw [ih]
-    rw [Nat.succ_eq_add_one]
     ring
