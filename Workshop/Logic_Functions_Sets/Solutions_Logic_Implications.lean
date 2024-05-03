@@ -1,7 +1,4 @@
-
-
 import Mathlib.Tactic -- imports all of the tactics in Lean's maths library
-
 
 
 -- # Implications
@@ -14,7 +11,7 @@ example (hP : 1 + 1 = 2) (hQ : ∀ n : ℕ, ∃ m : ℕ, n < m) (hR : 1 = 0) : 1
   exact hP
 
 -- but, for clarity, we'll use dummy propositions for th rest of the section
-variable (P Q R : Prop)
+variable {P Q R : Prop}
 
 
 example (hP : P) (hQ : Q) (hR : R) : P := by
@@ -53,8 +50,8 @@ example : (P → Q → R) → (P → Q) → P → R := by
 -- tauto
 example :
     (((P → Q → Q) → (P → Q) → Q) → R) →
-      ((((P → P) → Q) → P → P → Q) → R) → (((P → P → Q) → (P → P) → Q) → R) → R :=
-  by tauto
+      ((((P → P) → Q) → P → P → Q) → R) → (((P → P → Q) → (P → P) → Q) → R) → R := by
+  tauto
 
 
 -- ### Exercises
@@ -67,8 +64,7 @@ example : (P → Q) → ((P → Q) → P) → Q := by
   apply hPQP
   exact hPQ
 
-example : ((P → Q) → R) → ((Q → R) → P) → ((R → P) → Q) → P :=
-  by
+example : ((P → Q) → R) → ((Q → R) → P) → ((R → P) → Q) → P := by
   intro h1 h2 h3
   apply h2
   intro hQ

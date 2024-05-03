@@ -1,4 +1,3 @@
-
 import Mathlib.Tactic -- imports all the Lean tactics
 
 
@@ -7,7 +6,7 @@ import Mathlib.Tactic -- imports all the Lean tactics
 -- ### Class
 
 -- Throughout this sheet, `P`, `Q` and `R` will denote propositions.
-variable (P Q R : Prop)
+variable {P Q R : Prop}
 
 example : True := by trivial
 

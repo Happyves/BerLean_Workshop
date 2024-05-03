@@ -1,17 +1,13 @@
-
 import Mathlib.Tactic
 
-
 -- # Functions : Properties
-
 
 -- ### Class
 
 
 open Function
 
-
-variable (X Y Z : Type)
+variable {X Y Z : Type}
 
 theorem injective_def (f : X → Y) : Injective f ↔ ∀ a b : X, f a = f b → a = b := by
   rfl
@@ -44,17 +40,15 @@ example : Surjective (id : X → X) := by
   rfl
 
 
-
 -- ### Exercises
 
-example (f : X → Y) (g : Y → Z) (hf : Injective f) (hg : Injective g) : Injective (g ∘ f) :=  by
+example {f : X → Y} {g : Y → Z} (hf : Injective f) (hg : Injective g) : Injective (g ∘ f) :=  by
   intro a b h
   apply hg at h
   apply hf at h
   exact h
 
-example (f : X → Y) (g : Y → Z) : Surjective (g ∘ f) → Surjective g := by
-  intro hgf
+example {f : X → Y} {g : Y → Z} (hgf : Surjective (g ∘ f)) : Surjective g := by
   intro z
   cases' hgf z with x hx
   use f x

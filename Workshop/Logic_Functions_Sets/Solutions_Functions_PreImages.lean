@@ -1,13 +1,10 @@
-
-
 import Mathlib.Tactic
 
 -- # Preimages and images
 
-
 -- ### Class
 
-variable (X Y : Type) (f : X → Y) (S : Set X) (T : Set Y)
+variable {X Y Z : Type} (f : X → Y) (S : Set X) (T : Set Y)
 
 example : S ⊆ f ⁻¹' (f '' S) := by
   intro x hx
@@ -37,7 +34,7 @@ example : f '' S ⊆ T ↔ S ⊆ f ⁻¹' T := by
 
 -- ### Exercises
 
-example : g ∘ f '' S = g '' (f '' S) := by
+example (g : Y → Z) : g ∘ f '' S = g '' (f '' S) := by
   ext x
   constructor
   · intro hxS
