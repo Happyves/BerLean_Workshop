@@ -38,4 +38,4 @@ lake exe cache get
 
 Finally, to launch VS code in the proper folder (that of the workshop), you can execute command "code ." (in the directory that you're in after having executed the previous commands).
 
-To check that everything worked out, open the file explorer, if it isn't open already, by clicking the symbol with the two sheets just below the "File" tool-tab. Then go to "Content" and open "Test.lean". If nothing red is displayed on the screen once things have loaded, then you're good to go.
+To check that everything worked out, open the file explorer, if it isn't open already, by clicking the icon with the two sheets just below the "File" tool-tab (the one that displays "Explorer" if hovered above). Then go to "Content" and open "Test.lean". If nothing red is displayed on the screen once things have loaded, then you're good to go.

@@ -77,25 +77,28 @@ def get (l : List ℕ) (i : ℕ) (wow : i < l.length): ℕ :=
 
 -- ### Exercise
 
-/-
+#check List.sublists
 
-Write an algorithm `sublists` that, given an input list, returns a list
-of lists corresponding to all lists made up of elements of the input list,
-in the same order.
+#check List.length_sublists
 
-For example, `#eval sublists [1,2,3]` should produce:
-`[[], [3], [2], [2, 3], [1], [1, 3], [1, 2], [1, 2, 3]]`
+def sublists : List α → List (List α)
+| [] => [[]]
+| x :: l => (sublists l) ++ ((sublists l).map (List.cons x))
 
-Then, prove the following theorem:
-`example (l : List α) : List.length (sublists l) = 2 ^ (List.length l)`
+#eval sublists [1,2,3]
 
-You may use the following, in addition to lemmata from the above.
--/
-
-#check List.length_map
-#check List.length_singleton
-#check List.length_append
-#check Nat.succ_eq_add_one
-#check pow_add
-#check pow_one
-#check mul_two
+example (l : List α) : List.length (sublists l) = 2 ^ List.length l := by
+  induction' l with x l ih
+  · unfold sublists
+    rw [List.length_singleton]
+    rw [List.length_nil]
+    norm_num
+  · unfold sublists
+    rw [List.length_append]
+    rw [List.length_map]
+    rw [ih]
+    rw [List.length_cons]
+    rw [Nat.succ_eq_add_one]
+    rw [pow_add]
+    rw [pow_one]
+    rw [mul_two]
