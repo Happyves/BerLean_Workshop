@@ -1,0 +1,15 @@
+name = "workshop"
+defaultTargets = ["Workshop"]
+
+[leanOptions]
+# pretty-prints `fun a ↦ b`
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+
+[[lean_lib]]
+name = "Workshop"
