@@ -1,4 +1,11 @@
+import Workshop.Common
 import Workshop.Basics.Basics
+import Workshop.Basics.S01_Calculating
+import Workshop.Basics.S02_Overview
+import Workshop.Basics.S03_Proving_Identities_in_Algebraic_Structures
+import Workshop.Basics.S04_More_on_Order_and_Divisibility
+import Workshop.Basics.S05_Proving_Facts_about_Algebraic_Structures
+import Workshop.Basics.S06_Using_Theorems_and_Lemmas
 import Workshop.Discrete_Math.Algorithms
 import Workshop.Discrete_Math.Combinatorics
 import Workshop.Logic_Functions_Sets.Solutions_Functions_PreImages

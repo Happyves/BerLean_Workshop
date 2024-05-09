@@ -1,7 +1,4 @@
-
 import Mathlib.Tactic
-
-
 
 -- # Class
 
