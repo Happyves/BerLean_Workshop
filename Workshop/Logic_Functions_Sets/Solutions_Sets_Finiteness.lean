@@ -47,8 +47,7 @@ example (n : ℕ) : (Finset.range n).card = n := by
 
 -- ### Exercises
 
--- provide check for `Finset.range_one`, `Finset.sum_singleton`, `mul_add`, `Nat.succ_eq_add_one`
--- in the actual exercise
+
 example (n : ℕ) : 2*(∑ x in Finset.range (n+1), x) = n*(n+1) := by
   induction' n with n ih
   · rw [Finset.range_one]

@@ -69,6 +69,7 @@ def match_fn_2 (n : ℤ) :=
 #eval match_fn_2 37
 #eval match_fn_2 42
 
+
 def Fermat (n : ℕ) := ∃ x : ℕ, x > 0 ∧ ∃ y > 0, ∃ z > 0, x^n +y^n = z^n
 
 open Classical in

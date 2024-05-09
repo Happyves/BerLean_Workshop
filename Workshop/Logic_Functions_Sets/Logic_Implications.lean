@@ -6,7 +6,7 @@ import Mathlib.Tactic -- imports all of the tactics in Lean's maths library
 
 -- ### Class
 
--- just a quick example to remind people that the stuff taught in this section will be used in concrete contexts
+-- concrete contexts
 example (hP : 1 + 1 = 2) (hQ : ∀ n : ℕ, ∃ m : ℕ, n < m) (hR : 1 = 0) : 1 + 1 = 2 := by
   exact hP
 
