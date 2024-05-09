@@ -134,7 +134,7 @@ example (a b : ℕ) : a + a * b = (b + 1) * a := by
 -- # Some more difficult proofs
 def myFactorial : ℕ → ℕ
 | 0 => 1
-| (n + 1) => (n + 1) * myFactorial n
+| n + 1 => (n + 1) * myFactorial n
 
 #check (myFactorial : ℕ → ℕ)
 
