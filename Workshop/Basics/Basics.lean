@@ -42,8 +42,10 @@ example : ℕ := 2
 #check Irrational (rexp 1 + π)
 #check myFavouriteNumber = yourFavouriteNumber
 
-def MyDifficultProposition : Prop := ∀ n : ℕ, ∃ p, n ≤ p ∧ Prime p ∧ Prime (p + 2)
-def MyEasyProposition : Prop := ∀ n : ℕ, ∃ p, n ≤ p ∧ Prime p ∧ Prime (p + 2) ∧ Prime (p + 4)
+def MyDifficultProposition : Prop :=
+  ∀ n : ℕ, ∃ p, n ≤ p ∧ Prime p ∧ Prime (p + 2)
+def MyEasyProposition : Prop :=
+  ∀ n : ℕ, ∃ p, n ≤ p ∧ Prime p ∧ Prime (p + 2) ∧ Prime (p + 4)
 def MyVeryEasyProposition : Prop := ∀ n : ℕ, ∃ p, n ≤ p
 
 -- Key! If `p : Prop`, an expression of type `p` is a proof of `p`.
@@ -84,6 +86,8 @@ example (a b : ℕ) : a + a * b = (b + 1) * a := by ring
 
 example : 2 + 2 ≠ 5 := by simp
 example : 4 ^ 25 < 3 ^ 39 := by norm_num
+
+example : 24 + 45 ^ 21 < 10 ^ 100 := by omega
 
 open Nat
 
