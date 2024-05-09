@@ -1,4 +1,9 @@
 import Workshop.Common
+import Workshop.Analysis.S01_Elementary_Differential_Calculus
+import Workshop.Analysis.S02_Differential_Calculus_in_Normed_Spaces
+import Workshop.Analysis.S03_Integration
+import Workshop.Analysis.S04_Measure_Theory
+import Workshop.Analysis.S05_Elementary_Integration
 import Workshop.Basics.Basics
 import Workshop.Basics.S01_Calculating
 import Workshop.Basics.S02_Overview

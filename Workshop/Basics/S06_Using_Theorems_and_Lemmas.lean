@@ -127,4 +127,4 @@ example : 2 * a * b ≤ a ^ 2 + b ^ 2 := by
 example : |a * b| ≤ (a ^ 2 + b ^ 2) / 2 := by
   sorry
 
-#check abs_le'.mpr
+#check (@abs_le' _ _ _ a b).mpr
