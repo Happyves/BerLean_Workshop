@@ -78,3 +78,5 @@ example (f : ℝ → ℝ) {a b : ℝ} (hab : a < b) (hf : ContinuousOn f (Icc a 
 example : deriv (fun x : ℝ ↦ x ^ 5) 6 = 5 * 6 ^ 4 := by simp
 
 example : deriv sin π = -1 := by simp
+
+-- The `fun_trans` tactic (work in progress) will be another option.

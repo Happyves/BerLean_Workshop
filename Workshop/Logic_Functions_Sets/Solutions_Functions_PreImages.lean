@@ -27,9 +27,9 @@ example : f '' (f ⁻¹' T) ⊆ T := by
 example : f '' S ⊆ T ↔ S ⊆ f ⁻¹' T := by
   constructor
   · intro h x hxS
-    refine' h ⟨x, hxS, rfl⟩
+    refine h ⟨x, hxS, rfl⟩
   · rintro h _ ⟨x, hx, rfl⟩
-    refine' h hx
+    refine h hx
 
 
 -- ### Exercises
