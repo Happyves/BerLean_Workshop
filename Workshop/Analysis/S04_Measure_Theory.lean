@@ -85,5 +85,5 @@ example {f : ℕ → Set α} (hmeas : ∀ i, MeasurableSet (f i)) (hdis : Pairwi
 -- The collection of properties that hold almost everywhere form a filter,
 -- but Mathlib introduces special notation for saying that a property holds
 -- almost everywhere.
-example {P : α → Prop} : (∀ᵐ x ∂μ, P x) ↔ ∀ᶠ x in μ.ae, P x :=
+example {P : α → Prop} : (∀ᵐ x ∂μ, P x) ↔ ∀ᶠ x in MeasureTheory.ae μ, P x :=
   Iff.rfl
