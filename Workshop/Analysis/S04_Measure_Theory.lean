@@ -1,5 +1,4 @@
 import Workshop.Common
-import Mathlib.Analysis.NormedSpace.FiniteDimension
 import Mathlib.Analysis.Convolution
 import Mathlib.MeasureTheory.Function.Jacobian
 import Mathlib.MeasureTheory.Integral.Bochner

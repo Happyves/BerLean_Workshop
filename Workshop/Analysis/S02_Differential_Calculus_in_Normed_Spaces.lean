@@ -1,10 +1,7 @@
 import Workshop.Common
-import Mathlib.Analysis.NormedSpace.BanachSteinhaus
-import Mathlib.Analysis.NormedSpace.FiniteDimension
 import Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff
 import Mathlib.Analysis.Calculus.ContDiff.RCLike
 import Mathlib.Analysis.Calculus.FDeriv.Prod
-
 
 open Set Filter
 
